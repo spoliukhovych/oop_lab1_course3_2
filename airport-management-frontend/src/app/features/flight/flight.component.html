@@ -1,0 +1,67 @@
+<html>
+
+<header>
+  <app-navbar></app-navbar>
+</header>
+
+  <body>
+    <h1 class="text-center mt-5">Flight: {{flight.id}}</h1>
+
+    <div class="container pt-5">
+      <div class="row">
+        <div class="col d-flex justify-content-center">
+          <dl>
+            <dt>Id:</dt>
+            <dd>{{flight.id}}</dd>
+
+            <dt>Departure from:</dt>
+            <dd>{{flight.departureFrom}}</dd>
+
+            <dt>Destination:</dt>
+            <dd>{{flight.destination}}</dd>
+
+            <dt>Departure time:</dt>
+            <dd>{{flight.departureTime | date:'yyyy-MM-dd HH:mm'}}</dd>
+
+            <dt>Arrival time:</dt>
+            <dd>{{flight.arrivalTime | date:'yyyy-MM-dd HH:mm'}}</dd>
+          </dl>
+        </div>
+
+        <div class="btn-primary col d-flex flex-column justify-content-center text-center">
+          <div class="p-1">
+            <ng-container *ngIf="auth.getUser() | async as user">
+              <button class="w-25 btn btn-primary" *ngIf="user.nickname=='admin'" (click)="routeToEditForm(flight.id)">Edit</button>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="text-center m-3">Crew members</h1>
+
+      <div class="row justify-content-center">
+        <table class="table table-hover table-info table-striped">
+          <thead class="table-dark">
+            <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Surname</th>
+              <th>Position</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let crewMember of flight.crewMembers">
+              <td>{{crewMember.id}}</td>
+              <td>{{crewMember.name}}</td>
+              <td>{{crewMember.surname}}</td>
+              <td>{{crewMember.position}}</td>
+              <td><button class="btn btn-danger" (click)="deleteCrewMemberFromFlight(crewMember.id)">Delete</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

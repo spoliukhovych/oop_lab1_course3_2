@@ -1,0 +1,501 @@
+{
+	"info": {
+		"_postman_id": "360f77fb-5f3d-4a1f-bd2d-f981732a479b",
+		"name": "Airport management system(Servlets)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19089953"
+	},
+	"item": [
+		{
+			"name": "Crew members",
+			"item": [
+				{
+					"name": "Get all crew members",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/crew-member/list",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"crew-member",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get crew member by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/crew-member/get/by-id?id=2",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"crew-member",
+								"get",
+								"by-id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new crew member",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Sus\",\r\n    \"surname\": \"Abobich\",\r\n    \"position\": \"OPERATOR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/crew-member/create",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"crew-member",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update crew member",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 16,\r\n    \"name\": \"Petro\",\r\n    \"surname\": \"Apostol\",\r\n    \"position\": \"PILOT\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/crew-member/update",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"crew-member",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete crew member by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/crew-member/delete?id=16",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"crew-member",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "16"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Flights",
+			"item": [
+				{
+					"name": "Get all flights",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/flight/list",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"flight",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get flight by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/flight/get/by-id?id=1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"flight",
+								"get",
+								"by-id"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create new flight",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"departureFrom\": \"Boryspil\",\r\n    \"destination\": \"Lviv\",\r\n    \"departureTime\": \"2024-07-23T23:53:00\",\r\n    \"arrivalTime\": \"2024-07-24T11:32:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/flight/create",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"flight",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update flight",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 5,\r\n    \"departureFrom\": \"Nova Borova\",\r\n    \"destination\": \"Lviv\",\r\n    \"departureTime\": \"2024-07-23T23:53:00\",\r\n    \"arrivalTime\": \"2024-07-24T11:32:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/flight/update",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"flight",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete flight by id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/flight/delete?id=5",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"flight",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzUGpVc0Zja1RYOEZOSnFRVzBnNkxhT0V5Z3RBcGtZUEd1a2ItRVQ3eWVBIn0.eyJleHAiOjE2ODMwNTUzMDAsImlhdCI6MTY4MzA1NTAwMCwianRpIjoiYzIwYTg3NDItMjk0ZS00MDFjLTlhMjgtYzJkNDA0M2VkZTBhIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL2F1dGgvcmVhbG1zL2FpcnBvcnQtbWFuYWdlbWVudC1zeXN0ZW0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNmE2Mjg3NWYtM2ZkMS00MTY0LTkyMmMtYjUyYjE5ZGQ2MDI0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYW1zLWF1dGgiLCJzZXNzaW9uX3N0YXRlIjoiYzM1OWQzNTYtYjAyZS00NTZkLTk2ZTctNDIwNzA5NTkwN2QzIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLWFpcnBvcnQtbWFuYWdlbWVudC1zeXN0ZW0iLCJvZmZsaW5lX2FjY2VzcyIsIkFETUlOIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhbXMtYXV0aCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiYzM1OWQzNTYtYjAyZS00NTZkLTk2ZTctNDIwNzA5NTkwN2QzIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiJ9.RzY40Y-AV_y0ocn7tpWBPILgGjjkrwRvHYWl5z6FCdi-cI3eIbym0CMRkl9E-12WuQ7_k73P7loQVZ1sLJwH8sIqDsYBnqcqQL6pGOK-WgCKufc9nNIlessqiTrPGqVEkkQA6KzWCFUvOZA2HijDfCfBbt7k-RfV-rTScUdB5ldo7lFTGG6dGqSSOH5P0WcxdDRbD55j4R-kaHeMPtQw9_Ck-O0FUtsG5JA_1Afu1yZq65x4sUX3aKR73oZjk5JE85Il4X-b7JwINbx19q51f_SarkEeXSz0mM4IBNhOsOIpB5_HudZBzFAiRBRuE1gvYSBb7xAczl3NU5rflEQtQg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Keycloak",
+			"item": [
+				{
+					"name": "OpenID configuration",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{keycloak_server}}/auth/realms/airport-management-system/.well-known/openid-configuration",
+							"host": [
+								"{{keycloak_server}}"
+							],
+							"path": [
+								"auth",
+								"realms",
+								"airport-management-system",
+								".well-known",
+								"openid-configuration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate admin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "ams-auth",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{keycloak_server}}/auth/realms/airport-management-system/protocol/openid-connect/token",
+							"host": [
+								"{{keycloak_server}}"
+							],
+							"path": [
+								"auth",
+								"realms",
+								"airport-management-system",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticate dispatcher",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "ams-auth",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{keycloak_server}}/auth/realms/airport-management-system/protocol/openid-connect/token",
+							"host": [
+								"{{keycloak_server}}"
+							],
+							"path": [
+								"auth",
+								"realms",
+								"airport-management-system",
+								"protocol",
+								"openid-connect",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get data about user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzUGpVc0Zja1RYOEZOSnFRVzBnNkxhT0V5Z3RBcGtZUEd1a2ItRVQ3eWVBIn0.eyJleHAiOjE2ODMwNTQzNDUsImlhdCI6MTY4MzA1NDA0NSwianRpIjoiZmYxYzEyNjgtNDVmZC00MDMxLThlODItNzAxNDk3MTJlZWU5IiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL2F1dGgvcmVhbG1zL2FpcnBvcnQtbWFuYWdlbWVudC1zeXN0ZW0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNmE2Mjg3NWYtM2ZkMS00MTY0LTkyMmMtYjUyYjE5ZGQ2MDI0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYW1zLWF1dGgiLCJzZXNzaW9uX3N0YXRlIjoiNWZlNzEyMDYtMmVkZC00MGIwLWExNjUtZWQwYjE4ZjliN2JiIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLWFpcnBvcnQtbWFuYWdlbWVudC1zeXN0ZW0iLCJvZmZsaW5lX2FjY2VzcyIsIkFETUlOIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhbXMtYXV0aCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiNWZlNzEyMDYtMmVkZC00MGIwLWExNjUtZWQwYjE4ZjliN2JiIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiJ9.ZYcro5je6YuM4URT69jL_3uXLEv93Nd1FU7BIMJfbDuA-b6O6nlrmjU1DIgt7YGpNPIiYJR-B_sOvo4j4cEmjRZohSMhGNswHbD-IuDGtVvinAok7OPXntyLuf3IkHzyv7iouoYjYiNsBL3lRYhuhtrkkF3EMyXc-03DNgBUUVw_-UweHPa-T-HHMGcHWtGi_DCU4Cb7t3eUSjicr43LbPxYrh-7uiP5CstIL6BD3H9djug-vwa0O2PaQ8vVPH94AzQRqd8T1iDY5-VVO0b8rurKiOPeVjKnbYp-3GtdxT-UcKntA5HINGOrOVKAh0v2rh_ZJgnZxi25XSbzLppFcg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{server}}/me",
+					"host": [
+						"{{server}}"
+					],
+					"path": [
+						"me"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJzUGpVc0Zja1RYOEZOSnFRVzBnNkxhT0V5Z3RBcGtZUEd1a2ItRVQ3eWVBIn0.eyJleHAiOjE2ODMxMTI5MTMsImlhdCI6MTY4MzExMjYxMywianRpIjoiZTkyNDgzODItYTNiNi00YWNmLWFmNWItMTBjNGRiOWI0MTRmIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo5MDkwL2F1dGgvcmVhbG1zL2FpcnBvcnQtbWFuYWdlbWVudC1zeXN0ZW0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNmE2Mjg3NWYtM2ZkMS00MTY0LTkyMmMtYjUyYjE5ZGQ2MDI0IiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiYW1zLWF1dGgiLCJzZXNzaW9uX3N0YXRlIjoiNWEzYzYyZjAtOTRhNy00YTk3LTgwMTEtYWQ5MDVhNjNjMGUwIiwiYWNyIjoiMSIsInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLWFpcnBvcnQtbWFuYWdlbWVudC1zeXN0ZW0iLCJvZmZsaW5lX2FjY2VzcyIsIkFETUlOIiwidW1hX2F1dGhvcml6YXRpb24iXX0sInJlc291cmNlX2FjY2VzcyI6eyJhbXMtYXV0aCI6eyJyb2xlcyI6WyJBRE1JTiJdfSwiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiNWEzYzYyZjAtOTRhNy00YTk3LTgwMTEtYWQ5MDVhNjNjMGUwIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiJ9.GcJqelp-8kbFWIG47Ezj5BnbLwwrFlet46qY7D6EB7sSSUmnQ_-0uyTWnkJkw8UW4r4xsYQV_0BmTErB9ic7gSHVtT5aMB3qA8zGaiXb2TWfET4XVk_1265H7uJb6cHla3C45RKjPP2aZDMy1nii8zvQdKvjUs2PCmVqCLC-3hnfODC3YuJkXmMRHW91WVaoIv5engAtLKqI5499IdNLOCGrOvPb3TZMq6hVIeFDt2qTszOcPPAHW4pzF91Z7B3HpAEv4v58stV6Ho19vad-o8dp4dO2ozCsBsdl4B9FYWZVbi_6BE2Hu2RVZsAKfEEqTtbkIirSn2j1a1dH1p9FJA",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "http://localhost:9999/airport_management_backend_war_exploded",
+			"type": "string"
+		},
+		{
+			"key": "keycloak_server",
+			"value": "localhost:9090",
+			"type": "string"
+		}
+	]
+}

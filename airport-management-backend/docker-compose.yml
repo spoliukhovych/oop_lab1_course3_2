@@ -1,0 +1,39 @@
+version: '3.8'
+name: airport-compose
+services:
+  postgres-db:
+    image: postgres
+    container_name: postgres-db
+    environment:
+      - POSTGRES_USER=user1
+      - POSTGRES_DB=airport-management-db
+      - POSTGRES_PASSWORD=12345
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+  tomcat:
+    image: tomcat:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./target/ROOT.war:/usr/local/tomcat/webapps/ROOT.war
+    command: catalina.sh run
+    environment:
+      - DB_URL=jdbc:postgresql://postgres-db:5432/airport-management-db
+      - DB_USER=user1
+      - DB_PASSWORD=12345
+      - JDBC_DRIVER=org.postgresql.Driver
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_PASSWORD: 12345
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres-db
+volumes:
+  postgres-data:
+    driver: local

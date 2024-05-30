@@ -1,0 +1,48 @@
+<html>
+<header>
+  <app-navbar></app-navbar>
+</header>
+
+<body>
+  <h1 class="text-center mt-5">Flights</h1>
+
+  <div class="container">
+    <div class="row w-25 pb-1">
+      <ng-container *ngIf="auth.getUser() | async as user">
+        <button class="btn btn-success" *ngIf="user.nickname=='admin'" (click)="showNewFlightForm()">Create flight</button>
+      </ng-container>
+    </div>
+
+    <div class="row justify-content-center">
+      <table class="table table-hover table-info table-striped">
+        <thead class="table-dark">
+          <tr>
+            <th class="text-light">Id</th>
+            <th class="text-light">Departure from</th>
+            <th class="text-light">Destination</th>
+            <th class="text-light">Departure time</th>
+            <th class="text-light">Arrival time</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr *ngFor="let flight of flights">
+            <td>{{flight.id}}</td>
+            <td>{{flight.departureFrom}}</td>
+            <td>{{flight.destination}}</td>
+            <td>{{flight.departureTime | date:'yyyy-MM-dd HH:mm'}}</td>
+            <td>{{flight.arrivalTime | date:'yyyy-MM-dd HH:mm'}}</td>
+            <td>
+              <button class="btn btn-primary" (click)="getFlightById(flight.id)">Info</button>
+              <ng-container *ngIf="auth.getUser() | async as user">
+                <button class="btn btn-danger mx-1" *ngIf="user.nickname=='admin'" (click)="deleteFlight(flight.id)">Delete</button>
+              </ng-container>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
